@@ -1,6 +1,6 @@
 ﻿using OdeToFood.Data.Models;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OdeToFood.Data.Services
 {
@@ -10,12 +10,17 @@ namespace OdeToFood.Data.Services
 
         public InMemoryResturantData()
         {
-
+            resturants = new List<Resturant>()
+            {
+                new Resturant {Id =1, Name= "Scott Pizza", Cuisine= CuisineType.Italian},
+                new Resturant {Id =1, Name= "Tersiguels", Cuisine= CuisineType.French},
+                new Resturant {Id =1, Name= "Oh india", Cuisine= CuisineType.Indian},
+            };
         }
 
         public IEnumerable<Resturant> GetAll()
         {
-            return resturants;
+            return resturants.OrderBy(r=>r.Name);
         }
     }
 }
