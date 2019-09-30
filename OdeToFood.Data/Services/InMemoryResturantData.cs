@@ -14,13 +14,13 @@ namespace OdeToFood.Data.Services
             {
                 new Resturant {Id =1, Name= "Scott Pizza", Cuisine= CuisineType.Italian},
                 new Resturant {Id =1, Name= "Tersiguels", Cuisine= CuisineType.French},
-                new Resturant {Id =1, Name= "Oh india", Cuisine= CuisineType.Indian},
+                new Resturant {Id =1, Name= "Mango Grove", Cuisine= CuisineType.Indian},
             };
         }
 
         public IEnumerable<Resturant> GetAll()
         {
-            return resturants.OrderBy(r=>r.Name);
+            return resturants.OrderBy(r => r.Name);
         }
     }
 }
