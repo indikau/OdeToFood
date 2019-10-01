@@ -13,9 +13,20 @@ namespace OdeToFood.Data.Services
             resturants = new List<Resturant>()
             {
                 new Resturant {Id =1, Name= "Scott Pizza", Cuisine= CuisineType.Italian},
-                new Resturant {Id =1, Name= "Tersiguels", Cuisine= CuisineType.French},
-                new Resturant {Id =1, Name= "Mango Grove", Cuisine= CuisineType.Indian},
+                new Resturant {Id =2, Name= "Tersiguels", Cuisine= CuisineType.French},
+                new Resturant {Id =3, Name= "Mango Grove", Cuisine= CuisineType.Indian},
             };
+        }
+
+        public void Add(Resturant resturant)
+        {
+            resturants.Add(resturant);
+            resturant.Id = resturants.Max(r => r.Id) + 1;
+        }
+
+        public Resturant Get(int id)
+        {
+            return resturants.FirstOrDefault(r => r.Id == id);
         }
 
         public IEnumerable<Resturant> GetAll()
