@@ -6,11 +6,11 @@ using System.Web.Http;
 
 namespace OdeToFood.Web.ApiControllers
 {
-    public class ResturantsController : ApiController
+    public class RestaurantsController : ApiController
     {
         private readonly IResturantData db;
 
-        public ResturantsController(IResturantData db)
+        public RestaurantsController(IResturantData db)
         {
             this.db = db;
         }

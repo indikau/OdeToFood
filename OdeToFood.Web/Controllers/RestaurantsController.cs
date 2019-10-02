@@ -4,11 +4,11 @@ using System.Web.Mvc;
 
 namespace OdeToFood.Web.Controllers
 {
-    public class ResturantsController : Controller
+    public class RestaurantsController : Controller
     {
         private readonly IResturantData db;
 
-        public ResturantsController(IResturantData db)
+        public RestaurantsController(IResturantData db)
         {
             this.db = db;
         }
@@ -73,6 +73,25 @@ namespace OdeToFood.Web.Controllers
                 return RedirectToAction("Details", new { id = restaurant.Id });
             }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var model = db.Get(id);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, FormCollection formCollection)
+        {
+            db.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

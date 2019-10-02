@@ -1,5 +1,4 @@
 ﻿using OdeToFood.Data.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -17,6 +16,13 @@ namespace OdeToFood.Data.Services
         public void Add(Restaurant restaurant)
         {
             db.Restaurants.Add(restaurant);
+            db.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var restaurant = Get(id);
+            db.Restaurants.Remove(restaurant);
             db.SaveChanges();
         }
 
