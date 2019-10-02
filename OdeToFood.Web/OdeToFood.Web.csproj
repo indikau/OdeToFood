@@ -191,6 +191,7 @@
     <Content Include="Views\Resturants\Details.cshtml" />
     <Content Include="Views\Resturants\NotFound.cshtml" />
     <Content Include="Views\Resturants\Create.cshtml" />
+    <Content Include="Views\Resturants\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

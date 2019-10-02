@@ -30,6 +30,7 @@ namespace OdeToFood.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -39,7 +40,38 @@ namespace OdeToFood.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Resturant resturant)
         {
-            db.Add(resturant);
+            //if (string.IsNullOrEmpty(resturant.Name))
+            //{
+            //    ModelState.AddModelError(nameof(resturant.Name), "The Name is reqired");
+            //}
+            if (ModelState.IsValid)
+            {
+                db.Add(resturant);
+                return RedirectToAction("Details", new { id = resturant.Id });
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = db.Get(id);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Resturant resturant)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Update(resturant);
+                return RedirectToAction("Details", new { id = resturant.Id });
+            }
             return View();
         }
     }

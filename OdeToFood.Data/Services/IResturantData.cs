@@ -9,5 +9,6 @@ namespace OdeToFood.Data.Services
         Resturant Get(int id);
 
         void Add(Resturant resturant);
+        void Update(Resturant resturant);
     }
 }
