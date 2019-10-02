@@ -6,44 +6,44 @@ namespace OdeToFood.Data.Services
 {
     public class InMemoryResturantData : IResturantData
     {
-        List<Resturant> resturants;
+        List<Restaurant> restaurants;
 
         public InMemoryResturantData()
         {
-            resturants = new List<Resturant>()
+            restaurants = new List<Restaurant>()
             {
-                new Resturant {Id =1, Name= "Scott Pizza", Cuisine= CuisineType.Italian},
-                new Resturant {Id =2, Name= "Tersiguels", Cuisine= CuisineType.French},
-                new Resturant {Id =3, Name= "Mango Grove", Cuisine= CuisineType.Indian},
+                new Restaurant {Id =1, Name= "Scott Pizza", Cuisine= CuisineType.Italian},
+                new Restaurant {Id =2, Name= "Tersiguels", Cuisine= CuisineType.French},
+                new Restaurant {Id =3, Name= "Mango Grove", Cuisine= CuisineType.Indian},
             };
         }
 
-        public void Add(Resturant resturant)
+        public void Add(Restaurant restaurant)
         {
-            resturants.Add(resturant);
-            resturant.Id = resturants.Max(r => r.Id) + 1;
+            restaurants.Add(restaurant);
+            restaurant.Id = restaurants.Max(r => r.Id) + 1;
         }
 
-        public void Update(Resturant resturant)
+        public void Update(Restaurant restaurant)
         {
-            var existing = Get(resturant.Id);
+            var existing = Get(restaurant.Id);
             if (existing != null)
             {
-                existing.Name = resturant.Name;
-                existing.Cuisine = resturant.Cuisine;
+                existing.Name = restaurant.Name;
+                existing.Cuisine = restaurant.Cuisine;
 
             }
 
         }
 
-        public Resturant Get(int id)
+        public Restaurant Get(int id)
         {
-            return resturants.FirstOrDefault(r => r.Id == id);
+            return restaurants.FirstOrDefault(r => r.Id == id);
         }
 
-        public IEnumerable<Resturant> GetAll()
+        public IEnumerable<Restaurant> GetAll()
         {
-            return resturants.OrderBy(r => r.Name);
+            return restaurants.OrderBy(r => r.Name);
         }
     }
 }

@@ -5,10 +5,10 @@ namespace OdeToFood.Data.Services
 {
     public interface IResturantData
     {
-        IEnumerable<Resturant> GetAll();
-        Resturant Get(int id);
+        IEnumerable<Restaurant> GetAll();
+        Restaurant Get(int id);
 
-        void Add(Resturant resturant);
-        void Update(Resturant resturant);
+        void Add(Restaurant restaurant);
+        void Update(Restaurant restaurant);
     }
 }

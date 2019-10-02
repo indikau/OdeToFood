@@ -38,7 +38,7 @@ namespace OdeToFood.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Resturant resturant)
+        public ActionResult Create(Restaurant resturant)
         {
             //if (string.IsNullOrEmpty(resturant.Name))
             //{
@@ -65,7 +65,7 @@ namespace OdeToFood.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Resturant resturant)
+        public ActionResult Edit(Restaurant resturant)
         {
             if (ModelState.IsValid)
             {
